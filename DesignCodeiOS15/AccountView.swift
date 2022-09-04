@@ -33,10 +33,8 @@ struct AccountView: View {
                 .padding()
                 .background(Circle().fill(.ultraThinMaterial))
                 .background(
-                    Image(systemName: "hexagon")
-                        .symbolVariant(.fill)
+                    HexagonView()
                         .foregroundColor(.blue)
-                        .font(.system(size: 200))
                         .offset(x: -50, y: -100)
                 )
             Text("Aleksei Sobolevskii")

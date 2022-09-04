@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F1F33D928C51A2500BF3BE6 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F33D828C51A2500BF3BE6 /* HexagonView.swift */; };
+		5F1F33DB28C51E5200BF3BE6 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F33DA28C51E5200BF3BE6 /* BlobView.swift */; };
 		5F45E90A28C28AA9003C39FF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F45E90928C28AA9003C39FF /* Styles.swift */; };
 		5F45E90C28C2A1B2003C39FF /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F45E90B28C2A1B2003C39FF /* AccountView.swift */; };
 		5F580C7B28BC75780016314C /* DesignCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F580C7A28BC75780016314C /* DesignCodeiOS15App.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		5F1F33D828C51A2500BF3BE6 /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
+		5F1F33DA28C51E5200BF3BE6 /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		5F45E90928C28AA9003C39FF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		5F45E90B28C2A1B2003C39FF /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		5F580C7728BC75780016314C /* DesignCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 				5F580C8028BC75780016314C /* Preview Content */,
 				5F45E90928C28AA9003C39FF /* Styles.swift */,
 				5F45E90B28C2A1B2003C39FF /* AccountView.swift */,
+				5F1F33DA28C51E5200BF3BE6 /* BlobView.swift */,
 				5F1F33D828C51A2500BF3BE6 /* HexagonView.swift */,
 			);
 			path = DesignCodeiOS15;
@@ -149,6 +152,7 @@
 				5F1F33D928C51A2500BF3BE6 /* HexagonView.swift in Sources */,
 				5F45E90C28C2A1B2003C39FF /* AccountView.swift in Sources */,
 				5F45E90A28C28AA9003C39FF /* Styles.swift in Sources */,
+				5F1F33DB28C51E5200BF3BE6 /* BlobView.swift in Sources */,
 				5F580C7D28BC75780016314C /* ContentView.swift in Sources */,
 				5F580C7B28BC75780016314C /* DesignCodeiOS15App.swift in Sources */,
 			);

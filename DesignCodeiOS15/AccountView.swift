@@ -37,6 +37,11 @@ struct AccountView: View {
                         .foregroundColor(.blue)
                         .offset(x: -50, y: -100)
                 )
+                .background(
+                    BlobView()
+                        .offset(x: 200, y: 0)
+                        .scaleEffect(0.5)
+                )
             Text("Aleksei Sobolevskii")
                 .font(.title.weight(.semibold))
             HStack {

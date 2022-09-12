@@ -7,15 +7,29 @@
 
 import SwiftUI
 
-struct TabItem: Identifiable {
-    let id = UUID()
-    let text: String
-    let icon: String
-}
+enum Tab: String, CaseIterable, Identifiable {
+    var id: String { self.rawValue }
 
-var tabItems = [
-    TabItem(text: "Learn now", icon: "house"),
-    TabItem(text: "Explore", icon: "magnifyingglass"),
-    TabItem(text: "Notifications", icon: "bell"),
-    TabItem(text: "Library", icon: "rectangle.stack"),
-]
+    case home
+    case explore
+    case notifications
+    case library
+
+    var title: String {
+        switch self {
+        case .home: return "Learn now"
+        case .explore: return "Explore"
+        case .notifications: return "Notifications"
+        case .library: return "Library"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .home: return "house"
+        case .explore: return "magnifyingglass"
+        case .notifications: return "bell"
+        case .library: return "rectangle.stack"
+        }
+    }
+}

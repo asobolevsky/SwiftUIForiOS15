@@ -32,4 +32,13 @@ enum Tab: String, CaseIterable, Identifiable {
         case .library: return "rectangle.stack"
         }
     }
+
+    var color: Color {
+        switch self {
+        case .home: return .teal
+        case .explore: return .teal
+        case .notifications: return .teal
+        case .library: return .teal
+        }
+    }
 }

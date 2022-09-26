@@ -8,43 +8,24 @@
 import SwiftUI
 
 struct TabBar: View {
-    @State private var selectedTab: Tab = .home
+    @Binding var selectedTab: Tab
     @State private var tabItemWidth: CGFloat = 0
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Group {
-                switch selectedTab {
-                case .home:
-                    ContentView()
-                    
-                case .explore:
-                    AccountView()
-                    
-                case .notifications:
-                    Text("Notification")
-                    
-                case .library:
-                    Text("Library")
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            HStack {
-                buttons
-            }
-            .padding(.top, 14)
-            .frame(height: 88, alignment: .top)
-            .background(
-                .ultraThinMaterial,
-                in: RoundedRectangle(cornerRadius: 34, style: .continuous)
-            )
-            .background(selectedTabItemBackground)
-            .overlay(selectedTabItemIndicator)
-            .strokeStyle(cornerRadius: 34)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea(.all, edges: .bottom)
+        HStack {
+            buttons
         }
+        .padding(.top, 14)
+        .frame(height: 88, alignment: .top)
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 34, style: .continuous)
+        )
+        .background(selectedTabItemBackground)
+        .overlay(selectedTabItemIndicator)
+        .strokeStyle(cornerRadius: 34)
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 
     @ViewBuilder
@@ -137,6 +118,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        TabBar(selectedTab: .constant(.home))
     }
 }

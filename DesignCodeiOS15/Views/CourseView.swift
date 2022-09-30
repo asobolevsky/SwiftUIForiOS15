@@ -12,6 +12,8 @@ struct CourseView: View {
     let namespace: Namespace.ID
     @Binding var show: Bool
     @State private var appearStates = (divider: false, author: false, content: false)
+    @State private var dragViewTranslation: CGSize = .zero
+    @State private var isDraggable = true
 
     var body: some View {
         ZStack {
@@ -20,6 +22,12 @@ struct CourseView: View {
                 content
             }
             .background(Color("Background"))
+            .mask(RoundedRectangle(cornerRadius: dragViewTranslation.width / 4, style: .continuous))
+            .shadow(color: .black.opacity(0.3), radius: 30, x: 0, y: 10)
+            .scaleEffect(dragViewTranslation.width / -1000 + 1)
+            .background(Color.black.opacity(dragViewTranslation.width / 500))
+            .background(.ultraThinMaterial)
+            .gesture(isDraggable ? drag : nil)
             .ignoresSafeArea()
 
             closeButton
@@ -30,6 +38,27 @@ struct CourseView: View {
         .onAppear {
             fadeIn()
         }
+    }
+
+    private var drag: some Gesture {
+        DragGesture(minimumDistance: 30, coordinateSpace: .local)
+            .onChanged { value in
+                guard value.translation.width > 0 else { return }
+                guard value.startLocation.x < 50 else { return }
+
+                withAnimation(.closeCard) {
+                    dragViewTranslation = value.translation
+                }
+
+                if dragViewTranslation.width > 120 {
+                    dragDismiss()
+                }
+            }
+            .onEnded { value in
+                if dragViewTranslation.width > 80 {
+                    dragDismiss()
+                }
+            }
     }
 
     private var cover: some View {
@@ -72,11 +101,7 @@ struct CourseView: View {
     }
 
     private var closeButton: some View {
-        Button {
-            withAnimation(.closeCard) {
-                show = false
-            }
-        } label: {
+        Button { dismiss() } label: {
             Image(systemName: "xmark")
                 .font(.body.weight(.bold))
                 .foregroundColor(.secondary)
@@ -147,6 +172,12 @@ struct CourseView: View {
         .opacity(appearStates.content ? 1 : 0)
     }
 
+    private func dismiss() {
+        withAnimation(.closeCard) {
+            show = false
+        }
+    }
+
     private func fadeIn() {
         withAnimation(.easeInOut.delay(0.3)) {
             appearStates.author = true
@@ -165,6 +196,17 @@ struct CourseView: View {
         appearStates.author = false
     }
 
+    private func dragDismiss() {
+        withAnimation(.closeCard.delay(0.3)) {
+            show = false
+        }
+
+        withAnimation(.easeInOut) {
+            dragViewTranslation = .zero
+        }
+
+        isDraggable = false
+    }
 }
 
 struct CourseView_Previews: PreviewProvider {

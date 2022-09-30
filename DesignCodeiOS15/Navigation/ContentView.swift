@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var model = Model()
     @AppStorage("selectedTab") private var selectedTab: Tab = .home
 
     var body: some View {
@@ -27,10 +28,12 @@ struct ContentView: View {
             }
 
             TabBar(selectedTab: $selectedTab)
+                .offset(y: model.showDetailedView ? 250 : 0)
         }
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 44)
         }
+        .environmentObject(model)
     }
 }
 

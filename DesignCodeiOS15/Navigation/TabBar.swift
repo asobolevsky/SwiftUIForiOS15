@@ -86,7 +86,7 @@ struct TabBar: View {
     private var buttons: some View {
         ForEach(Tab.allCases, id: \.id) { tabItem in
             Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                withAnimation(.openCard) {
                     selectedTab = tabItem
                 }
             } label: {
